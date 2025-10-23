@@ -3,12 +3,12 @@
 This contains notes about our team contributions.
 
 - Bea: 4 EduBridge modules
-- Nicole: 
+- Nicole: created Parent Tips feature 
 - Dan: 
 
 # additional updates
 - Bea: added the badge system
-- Nicole: 
+- Nicole: added parentTips.js with simple tips for parents  
 - Dan: 
 
 ```javasacript
@@ -44,4 +44,3 @@ const badges = [
   { title: "Animal Explorer", earned: true }
 ];
 
-```
