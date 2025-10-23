@@ -44,10 +44,6 @@ const badges = [
   { title: "Animal Explorer", earned: true }
 ];
 
-## 👩‍💻 Nicole Jane’s Contribution: Parenting Tips Feature
-
-Below is my JavaScript script that displays random parenting tips:
-
 ```javascript
 // parentTips.js
 // Feature: Parenting Tips Script
