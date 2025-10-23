@@ -44,35 +44,31 @@ const badges = [
   { title: "Animal Explorer", earned: true }
 ];
 
-// File: parentTips.js
+## 👩‍💻 Nicole Jane’s Contribution: Parenting Tips Feature
+
+Below is my JavaScript script that displays random parenting tips:
+
+```javascript
+// parentTips.js
+// Feature: Parenting Tips Script
+// Author: Nicole Jane
 
 const parentTips = [
-  "Encourage your child to finish one lesson at a time.",
-  "Spend time playing mini-games together.",
-  "Remember to take breaks and avoid overloading.",
-  "Celebrate small achievements to boost confidence.",
-  "Guide your child instead of giving direct answers.",
-  "Create a quiet study area free from distractions.",
-  "Praise effort, not just results.",
-  "Ask your child what they learned after each lesson."
+  "Be patient and listen actively to your child.",
+  "Spend quality time with your children every day.",
+  "Encourage curiosity and creativity.",
+  "Set clear boundaries and routines to help children feel secure.",
+  "Model kindness and empathy in your actions."
 ];
 
-function showTips() {
-  const tipsContainer = document.getElementById("parent-tips");
-  if (!tipsContainer) return;
-
-  const list = document.createElement("ul");
-  parentTips.forEach(tip => {
-    const li = document.createElement("li");
-    li.textContent = tip;
-    list.appendChild(li);
-  });
-
-  // Clear any placeholder text and add the list
-  tipsContainer.innerHTML = "";
-  tipsContainer.appendChild(list);
+function showParentTip() {
+  const randomIndex = Math.floor(Math.random() * parentTips.length);
+  console.log("Parenting Tip of the Day:", parentTips[randomIndex]);
 }
-document.addEventListener("DOMContentLoaded", showTips);
+
+showParentTip();
+
+
 
 
 
