@@ -2,7 +2,12 @@
 
 This contains notes about our team contributions.
 
-- Bea: badge system and 4 EduBridge modules
+- Bea: 4 EduBridge modules
+- Nicole: 
+- Dan: 
+
+# additional updates
+- Bea: added the badge system
 - Nicole: 
 - Dan: 
 
