@@ -46,7 +46,6 @@ const badges = [
 
 // File: parentTips.js
 
-// Tips for parents to guide their children
 const parentTips = [
   "Encourage your child to finish one lesson at a time.",
   "Spend time playing mini-games together.",
@@ -58,20 +57,22 @@ const parentTips = [
   "Ask your child what they learned after each lesson."
 ];
 
-// Function to show tips on the webpage
 function showTips() {
   const tipsContainer = document.getElementById("parent-tips");
   if (!tipsContainer) return;
 
-  let list = "<ul>";
+  const list = document.createElement("ul");
   parentTips.forEach(tip => {
-    list += `<li>${tip}</li>`;
+    const li = document.createElement("li");
+    li.textContent = tip;
+    list.appendChild(li);
   });
-  list += "</ul>";
 
-  tipsContainer.innerHTML = list;
+  // Clear any placeholder text and add the list
+  tipsContainer.innerHTML = "";
+  tipsContainer.appendChild(list);
 }
-
-// Run the function when the page loads
 document.addEventListener("DOMContentLoaded", showTips);
+
+
 
