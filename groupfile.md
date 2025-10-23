@@ -44,3 +44,34 @@ const badges = [
   { title: "Animal Explorer", earned: true }
 ];
 
+// File: parentTips.js
+
+// Tips for parents to guide their children
+const parentTips = [
+  "Encourage your child to finish one lesson at a time.",
+  "Spend time playing mini-games together.",
+  "Remember to take breaks and avoid overloading.",
+  "Celebrate small achievements to boost confidence.",
+  "Guide your child instead of giving direct answers.",
+  "Create a quiet study area free from distractions.",
+  "Praise effort, not just results.",
+  "Ask your child what they learned after each lesson."
+];
+
+// Function to show tips on the webpage
+function showTips() {
+  const tipsContainer = document.getElementById("parent-tips");
+  if (!tipsContainer) return;
+
+  let list = "<ul>";
+  parentTips.forEach(tip => {
+    list += `<li>${tip}</li>`;
+  });
+  list += "</ul>";
+
+  tipsContainer.innerHTML = list;
+}
+
+// Run the function when the page loads
+document.addEventListener("DOMContentLoaded", showTips);
+
