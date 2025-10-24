@@ -4,12 +4,12 @@ This contains notes about our team contributions.
 
 - Bea: 4 EduBridge modules
 - Nicole: created Parent Tips feature 
-- Dan: 
+- Dan: created Parent-Child Account Sync feature
 
 # additional updates
 - Bea: added the badge system
 - Nicole: added parentTips.js with simple tips for parents  
-- Dan: 
+- Dan: This demonstrates account linking for parent-child monitoring.
 
 ```javasacript
 const modules = {
@@ -65,6 +65,22 @@ function showParentTip() {
 showParentTip();
 
 
+const parentAccounts = [{ 
+  parentId: "p1", name: "Mother", childCode: "abc123", childId: "c1" 
+}
+];
 
-
+const childAccounts = [{ 
+  childId: "c1", name: "Alex", parentLinked: false 
+}
+];
+    if (parent && child) 
+    {
+      child.parentLinked = true;
+      console.log(`Child ${child.name} is now linked to Parent ${parent.name}`);
+    } 
+    else 
+    {
+      console.log("Invalid code or child not found");
+    }
 
