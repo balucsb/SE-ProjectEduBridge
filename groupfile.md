@@ -11,7 +11,7 @@ This contains notes about our team contributions.
 - Dan: This demonstrates account linking for parent-child monitoring.
 
 # LATEST: oct 28-30, 2025 updates
-- Bea: (1) added 2 functions (earnBadge and showAvailableContent) and a contentLibrary to view the pre-downloaded content
+- Bea: (1) added 2 functions (earnBadge and showAvailableContent) and a contentLibrary for online and offline content
        (2) made the interface design in figma
 - Nicole: (1) 
           (2) made data design
