@@ -1,20 +1,23 @@
 # SE-ProjectEduBridge NOTES
 
 This contains notes about our team contributions.
-
-<<<<<<< HEAD
 - Bea: 4 EduBridge modules
 - Nicole: created Parent Tips feature 
 - Dan: created Parent-Child Account Sync feature
-=======
-- Bea: 4 EduBridge modules and sample questions 
-- Nicole: 
-- Dan: 
 
 # additional updates
 - Bea: added the badge system
 - Nicole: added parentTips.js with simple tips for parents  
 - Dan: This demonstrates account linking for parent-child monitoring.
+
+# LATEST: oct 28-30, 2025 updates
+- Bea: (1) added 2 functions (earnBadge and showAvailableContent) and a contentLibrary to view the pre-downloaded content
+       (2) made the interface design in figma
+- Nicole: (1) 
+          (2) made data design
+- Dan: (1)
+       (2) made architectural design
+
 
 ```javasacript
 const modules = {
@@ -54,17 +57,32 @@ function earnBadge(badgeTitle) {
 }
 
 const contentLibrary = {
-  preDownloaded: ["Reading Module 1", "Math Basics", "Animal Quiz"],
-  onlineContent: ["Writing Practice", "Science Adventure"]
+  onlineVideos: [
+    { title: "Barney & Friends", category: "Featured", downloadable: true },
+    { title: "Learn Colors For Kids", category: "Online Video", downloadable: true },
+    { title: "Learn The Alphabet", category: "Online Video", downloadable: true }
+  ],
+  downloadedContent: [
+    { title: "Matching for Kids", category: "Video" },
+    { title: "Carnivores and Omnivores", category: "Video" },
+    { title: "Whiskers the Cat", category: "E-Book" },
+    { title: "Kahoot Quiz Time Dinosaurs", category: "E-Book" }
+  ]
 };
 
+// Display available content
 function showAvailableContent() {
-  console.log("Pre-Downloaded Content:");
-  contentLibrary.preDownloaded.forEach(item => console.log(`- ${item}`));
+  console.log("ONLINE VIDEOS:");
+  contentLibrary.onlineVideos.forEach(item =>
+    console.log(`- ${item.title} (${item.category})`)
+  );
 
-  console.log("\nAvailable Online Content:");
-  contentLibrary.onlineContent.forEach(item => console.log(`- ${item}`));
+  console.log("\nDOWNLOADED CONTENT:");
+  contentLibrary.downloadedContent.forEach(item =>
+    console.log(`- ${item.title} (${item.category})`)
+  );
 }
+
 
 
 <<<<<<< HEAD
