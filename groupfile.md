@@ -127,4 +127,3 @@ const childAccounts = [{
     }
 
 =======
->>>>>>> e1fa96c (Added a contentLibrary, an earnBadge function and another function called showAvailableContent for pre-downloaded content in groupfile.md)
