@@ -2,9 +2,14 @@
 
 This contains notes about our team contributions.
 
+<<<<<<< HEAD
 - Bea: 4 EduBridge modules
 - Nicole: created Parent Tips feature 
 - Dan: created Parent-Child Account Sync feature
+=======
+- Bea: 4 EduBridge modules and sample questions 
+- Nicole: 
+- Dan: 
 
 # additional updates
 - Bea: added the badge system
@@ -44,6 +49,25 @@ const badges = [
   { title: "Animal Explorer", earned: true }
 ];
 
+function earnBadge(badgeTitle) {
+  const badge = badges.find(b => b.title === badgeTitle);
+}
+
+const contentLibrary = {
+  preDownloaded: ["Reading Module 1", "Math Basics", "Animal Quiz"],
+  onlineContent: ["Writing Practice", "Science Adventure"]
+};
+
+function showAvailableContent() {
+  console.log("Pre-Downloaded Content:");
+  contentLibrary.preDownloaded.forEach(item => console.log(`- ${item}`));
+
+  console.log("\nAvailable Online Content:");
+  contentLibrary.onlineContent.forEach(item => console.log(`- ${item}`));
+}
+
+
+<<<<<<< HEAD
 ```javascript
 // parentTips.js
 // Feature: Parenting Tips Script
@@ -84,3 +108,5 @@ const childAccounts = [{
       console.log("Invalid code or child not found");
     }
 
+=======
+>>>>>>> e1fa96c (Added a contentLibrary, an earnBadge function and another function called showAvailableContent for pre-downloaded content in groupfile.md)
