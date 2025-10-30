@@ -91,20 +91,21 @@ function showAvailableContent() {
 // Feature: Parenting Tips Script
 // Author: Nicole Jane
 
+// Tips for parents
 const parentTips = [
-  "Be patient and listen actively to your child.",
-  "Spend quality time with your children every day.",
-  "Encourage curiosity and creativity.",
-  "Set clear boundaries and routines to help children feel secure.",
-  "Model kindness and empathy in your actions."
+  "Encourage your child to finish one lesson at a time."
+  "Spend time playing mini-games together.",
+  "Remember to take breaks and avoid overloading."
 ];
 
-function showParentTip() {
-  const randomIndex = Math.floor(Math.random() * parentTips.length);
-  console.log("Parenting Tip of the Day:", parentTips[randomIndex]);
-}
 
-showParentTip();
+
+// Function to display tips
+function showTips() {
+  parentTips.forEach((tip, index) => {
+    console.log(`${index + 1}. ${tip}`);
+  });
+}
 
 
 const parentAccounts = [{ 
