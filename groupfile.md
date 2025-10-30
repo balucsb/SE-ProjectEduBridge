@@ -83,15 +83,6 @@ function showAvailableContent() {
   );
 }
 
-
-
-<<<<<<< HEAD
-```javascript
-// parentTips.js
-// Feature: Parenting Tips Script
-// Author: Nicole Jane
-
-// Tips for parents
 const parentTips = [
   "Encourage your child to finish one lesson at a time."
   "Spend time playing mini-games together.",
