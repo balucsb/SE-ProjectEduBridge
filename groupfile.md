@@ -13,7 +13,7 @@ This contains notes about our team contributions.
 # LATEST: oct 28-30, 2025 updates
 - Bea: (1) added 2 functions (earnBadge and showAvailableContent) and a contentLibrary for online and offline content
        (2) made the interface design in figma
-- Nicole: (1) 
+- Nicole: (1) added parentTips.js that displays random parenting tips in the console.
           (2) made data design
 - Dan: (1)
        (2) made architectural design
