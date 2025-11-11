@@ -18,6 +18,10 @@ This contains notes about our team contributions.
 - Dan: (1)
        (2) made architectural design
 
+# LATEST: nov 6-11, 2025 updates
+- Dan: (3) made procedural design
+
+
 
 ```javasacript
 const modules = {
