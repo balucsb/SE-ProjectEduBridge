@@ -123,3 +123,15 @@ const childAccounts = [{
     }
 
 =======
+// added code by bea
+// Log quiz score per module (save score sa quiz)
+
+function recordQuizScore(childId, moduleName, score) {
+  if (!childProgress[childId]) return console.log("Child not found.");
+
+  childProgress[childId].quizScores[moduleName] = score;
+  childProgress[childId].lastActivity = new Date().toLocaleString();
+
+  console.log(`Saved quiz score for ${moduleName}: ${score}`);
+}
+
