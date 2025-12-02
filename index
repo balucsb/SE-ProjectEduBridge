@@ -1,0 +1,58 @@
+<?php
+// index.php
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>EduBridge</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            background: linear-gradient(135deg, #91B4FF, #FFE8FF);
+        }
+
+        .welcome-container {
+            text-align: center;
+        }
+
+        .logo {
+            width: 400px; /* enlarged logo */
+            max-width: 90%;
+            height: auto;
+            display: block;
+            margin-bottom: 30px;
+        }
+
+        .start-btn {
+            display: inline-block;
+            padding: 15px 40px;
+            background: #4CAF50;
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            transition: transform 0.2s;
+        }
+
+        .start-btn:hover {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+    <div class="welcome-container">
+        <img src="edubridge_logo.png" alt="EduBridge Logo" class="logo">
+        <a href="login.php" class="start-btn">Start</a>
+    </div>
+</body>
+</html>
