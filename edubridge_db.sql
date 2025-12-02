@@ -14,7 +14,7 @@ CREATE TABLE Child (
     email_address VARCHAR(255),
     parent_code VARCHAR(20),
     parent_id INT NOT NULL,
-    FOREIGN KEY (parent_id) REFERENCES Parent(parent_id)
+    FOREIGN KEY (parent_id) REFERENCES Parent(parent_id) ON DELETE CASCADE
 );
 
 CREATE TABLE Lesson (
@@ -39,8 +39,8 @@ CREATE TABLE Child_Activity (
     activity_id INT,
     score INT DEFAULT 0,
     PRIMARY KEY (child_id, activity_id),
-    FOREIGN KEY (child_id) REFERENCES Child(child_id),
-    FOREIGN KEY (activity_id) REFERENCES Gamified_Activity(activity_id)
+    FOREIGN KEY (child_id) REFERENCES Child(child_id) ON DELETE CASCADE,
+    FOREIGN KEY (activity_id) REFERENCES Gamified_Activity(activity_id) ON DELETE CASCADE
 );
 
 CREATE TABLE Child_Quiz (
@@ -48,8 +48,8 @@ CREATE TABLE Child_Quiz (
     quiz_id INT,
     score INT DEFAULT 0,
     PRIMARY KEY (child_id, quiz_id),
-    FOREIGN KEY (child_id) REFERENCES Child(child_id),
-    FOREIGN KEY (quiz_id) REFERENCES Gamified_Quiz(quiz_id)
+    FOREIGN KEY (child_id) REFERENCES Child(child_id) ON DELETE CASCADE,
+    FOREIGN KEY (quiz_id) REFERENCES Gamified_Quiz(quiz_id) ON DELETE CASCADE
 );
 
 CREATE TABLE Badge (
@@ -58,14 +58,10 @@ CREATE TABLE Badge (
     badge_system_id INT,
     activity_id INT NULL,
     quiz_id INT NULL,
-    FOREIGN KEY (badge_system_id) REFERENCES BadgeSystem(badge_system_id)
-        ON DELETE CASCADE,
-    FOREIGN KEY (activity_id) REFERENCES Gamified_Activity(activity_id)
-        ON DELETE SET NULL,
-    FOREIGN KEY (quiz_id) REFERENCES Gamified_Quiz(quiz_id)
-        ON DELETE SET NULL
+    FOREIGN KEY (badge_system_id) REFERENCES BadgeSystem(badge_system_id) ON DELETE CASCADE,
+    FOREIGN KEY (activity_id) REFERENCES Gamified_Activity(activity_id) ON DELETE SET NULL,
+    FOREIGN KEY (quiz_id) REFERENCES Gamified_Quiz(quiz_id) ON DELETE SET NULL
 );
-
 
 CREATE TABLE BadgeSystem (
     badge_system_id INT AUTO_INCREMENT PRIMARY KEY,
@@ -84,7 +80,7 @@ CREATE TABLE NotificationSystem (
     child_id INT NOT NULL,
     message TEXT NOT NULL,
     timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (child_id) REFERENCES Child(child_id)
+    FOREIGN KEY (child_id) REFERENCES Child(child_id) ON DELETE CASCADE
 );
 
 CREATE TABLE ChildLessonProgress (
@@ -92,8 +88,8 @@ CREATE TABLE ChildLessonProgress (
     lesson_id INT NOT NULL,
     status ENUM('not started', 'in progress', 'completed') DEFAULT 'not started',
     PRIMARY KEY (child_id, lesson_id),
-    FOREIGN KEY (child_id) REFERENCES Child(child_id),
-    FOREIGN KEY (lesson_id) REFERENCES Lesson(lesson_id)
+    FOREIGN KEY (child_id) REFERENCES Child(child_id) ON DELETE CASCADE,
+    FOREIGN KEY (lesson_id) REFERENCES Lesson(lesson_id) ON DELETE CASCADE
 );
 
 CREATE TABLE ChildActivityProgress (
@@ -101,20 +97,16 @@ CREATE TABLE ChildActivityProgress (
     activity_id INT NOT NULL,
     score INT DEFAULT 0,
     PRIMARY KEY (child_id, activity_id),
-    FOREIGN KEY (child_id) REFERENCES Child(child_id)
-        ON DELETE CASCADE,
-    FOREIGN KEY (activity_id) REFERENCES Gamified_Activity(activity_id)
-        ON DELETE CASCADE
+    FOREIGN KEY (child_id) REFERENCES Child(child_id) ON DELETE CASCADE,
+    FOREIGN KEY (activity_id) REFERENCES Gamified_Activity(activity_id) ON DELETE CASCADE
 );
 
 CREATE TABLE ChildBadges (
     child_id INT NOT NULL,
     badge_id INT NOT NULL,
     PRIMARY KEY (child_id, badge_id),
-    FOREIGN KEY (child_id) REFERENCES Child(child_id)
-        ON DELETE CASCADE,
-    FOREIGN KEY (badge_id) REFERENCES Badge(badge_id)
-        ON DELETE CASCADE
+    FOREIGN KEY (child_id) REFERENCES Child(child_id) ON DELETE CASCADE,
+    FOREIGN KEY (badge_id) REFERENCES Badge(badge_id) ON DELETE CASCADE
 );
 
 
@@ -154,13 +146,17 @@ VALUES
 ('Math Jenga'),
 ('Jungle Jamboree'),
 ('Once Upon A Sentence'),
-('Fraction Frenzy');
+('Fraction Frenzy'),
+('Finishing A Tough Puzzle'),
+('Bookworm Brainstorm');
 
 INSERT INTO Gamified_Quiz (title)
 VALUES
 ('Animals & Plants Quiz'),
 ('Numbers Quiz'),
-('Reading & Writing Quiz');
+('Reading & Writing Quiz'),
+('Sub-A-Traction Quiz'),
+('Chapter Challenge Quiz');
 
 INSERT INTO BadgeSystem (title, total_badges)
 VALUES
@@ -169,13 +165,13 @@ VALUES
 ('Reading & Writing', 5),
 ('Mini Games', 6);
 
-INSERT INTO Badge (title)
+INSERT INTO Badge (title, badge_system_id, activity_id, quiz_id)
 VALUES
-('I Am A Smart Subtractor'),
-('I Am A Puzzle Prodigy'),
-('I Am A Bookworm Boss'),
-('I Am A Challenge Champion'),
-('I Am A Quiz Whiz');
+('I Am A Smart Subtractor', 2, NULL, 4),
+('I Am A Puzzle Prodigy', 4, 5, NULL),
+('I Am A Bookworm Boss', 4, 6, NULL),
+('I Am A Challenge Champion', 3, NULL, 5),
+('I Am A Quiz Whiz', 4, NULL, NULL);
 
 INSERT INTO NotificationSystem (child_id, message, timestamp)
 VALUES
@@ -200,24 +196,58 @@ VALUES
 (2, 3, 88),
 (3, 4, 92),
 (4, 5, 100);
+DROP TABLE IF EXISTS ChildBadges;
+DROP TABLE IF EXISTS ChildActivityProgress;
+DROP TABLE IF EXISTS ChildLessonProgress;
+DROP TABLE IF EXISTS NotificationSystem;
+DROP TABLE IF EXISTS Child_Quiz;
+DROP TABLE IF EXISTS Child_Activity;
+DROP TABLE IF EXISTS Badge;
+DROP TABLE IF EXISTS BadgeSystem;
+DROP TABLE IF EXISTS Gamified_Quiz;
+DROP TABLE IF EXISTS Gamified_Activity;
+DROP TABLE IF EXISTS Lesson;
+DROP TABLE IF EXISTS Child;
+DROP TABLE IF EXISTS Parent;
+DROP TABLE IF EXISTS ParentTipsSection;
 
-SELECT * from Parent;
-SELECT * from Child;
-SELECT parent_id, name FROM Parent;
-SELECT child_id, name FROM Child;
-DELETE FROM Child 
-WHERE child_id > 0;
-DELETE FROM Parent 
-WHERE parent_id > 0;
-TRUNCATE TABLE Parent;
+
+-- Clear all data from child-dependent tables first
+DELETE FROM ChildBadges;
+DELETE FROM ChildActivityProgress;
+DELETE FROM ChildLessonProgress;
+DELETE FROM NotificationSystem;
+DELETE FROM Child_Quiz;
+DELETE FROM Child_Activity;
+
+-- Then clear parent-child tables
+DELETE FROM Child;
+DELETE FROM Parent;
+
+-- Clear remaining tables
+DELETE FROM Badge;
 DELETE FROM BadgeSystem;
-TRUNCATE TABLE BadgeSystem;
-SET FOREIGN_KEY_CHECKS = 0;
-TRUNCATE TABLE Child;
-TRUNCATE TABLE Parent;
-TRUNCATE TABLE Child_Activity;
-TRUNCATE TABLE Child_Quiz;
-TRUNCATE TABLE ChildLessonProgress;
-TRUNCATE TABLE ChildActivityProgress;
-TRUNCATE TABLE ChildBadges;
-TRUNCATE TABLE NotificationSystem;
+DELETE FROM Gamified_Quiz;
+DELETE FROM Gamified_Activity;
+DELETE FROM Lesson;
+DELETE FROM ParentTipsSection;
+SET SQL_SAFE_UPDATES = 0;
+-- Clear child-dependent tables first
+DELETE FROM ChildBadges WHERE badge_id > 0;
+DELETE FROM ChildActivityProgress WHERE activity_id > 0;
+DELETE FROM ChildLessonProgress WHERE lesson_id > 0;
+DELETE FROM NotificationSystem WHERE notification_id > 0;
+DELETE FROM Child_Quiz WHERE child_id > 0;
+DELETE FROM Child_Activity WHERE child_id > 0;
+
+-- Clear child and parent tables
+DELETE FROM Child WHERE child_id > 0;
+DELETE FROM Parent WHERE parent_id > 0;
+
+-- Clear other tables
+DELETE FROM Badge WHERE badge_id > 0;
+DELETE FROM BadgeSystem WHERE badge_system_id > 0;
+DELETE FROM Gamified_Quiz WHERE quiz_id > 0;
+DELETE FROM Gamified_Activity WHERE activity_id > 0;
+DELETE FROM Lesson WHERE lesson_id > 0;
+DELETE FROM ParentTipsSection WHERE tip_id > 0;
