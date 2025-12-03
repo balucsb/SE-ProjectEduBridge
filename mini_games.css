@@ -1,0 +1,180 @@
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+    background-color: #367ce5;
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+.top-bar {
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #FFFDE7; 
+}
+
+.left-nav { display: flex; align-items: center; gap: 15px; }
+
+.logo-text { font-family: 'Fredoka', sans-serif; font-size: 1.4rem; color: #ff9ebb; }
+.logo-highlight { color: #ff6b6b; }
+
+.user-info { display: flex; align-items: center; gap: 10px; }
+.greeting { font-family: 'Fredoka', sans-serif; font-size: 0.9rem; font-weight: 600; }
+.avatar-circle { 
+    width: 40px; height: 40px; border-radius: 50%; overflow: hidden; background: #eee;
+    display: flex; justify-content: center; align-items: center;
+}
+.avatar-circle img { width: 100%; height: 100%; object-fit: cover; }
+.img-fallback { font-size: 20px; }
+
+.category-banner {
+    background-color: #67a4ff; 
+    padding: 15px;
+    text-align: center;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    margin-bottom: 20px;
+}
+
+.category-banner h1 {
+    font-family: 'Fredoka', sans-serif;
+    color: #333;
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+
+.content-area { padding: 0 20px; flex-grow: 1; }
+
+.section-block { margin-bottom: 30px; }
+
+.section-title {
+    font-family: 'Fredoka', sans-serif;
+    color: #444; 
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.featured-card {
+    width: 100%;
+    height: 180px;
+    background-color: #4cd137; 
+    border-radius: 20px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.featured-img-placeholder {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #00d2d3, #54a0ff); 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    padding: 20px;
+}
+
+
+.activity-card-link { text-decoration: none; display: block; margin-bottom: 15px; }
+
+.activity-card {
+    background-color: #A88B57; 
+    border-radius: 20px;
+    padding: 10px;
+    display: flex;
+    align-items: stretch;
+    gap: 10px;
+    color: white;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    transition: transform 0.2s;
+}
+
+
+.activity-card-link .activity-card { background-color: #1b4399; }
+.activity-card:last-child { background-color: #1b4399; margin-bottom: 0; }
+
+.activity-card:active { transform: scale(0.98); }
+
+.activity-img-container {
+    flex: 0 0 100px; 
+    background-color: white;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.img-placeholder {
+    width: 100%; height: 100%;
+    display: flex; justify-content: center; align-items: center;
+    color: #555; font-weight: bold; font-size: 0.8rem;
+    background-color: #eee;
+}
+
+
+.jenga-placeholder { background-color: #ffcccc; }
+.quiz-placeholder { background-color: #ccffcc; }
+
+.activity-details { flex: 1; padding: 5px 0; }
+
+.activity-title {
+    font-family: 'Fredoka', sans-serif;
+    font-size: 1.1rem;
+    color: #FEEF6D; 
+    margin-bottom: 5px;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+.activity-desc {
+    font-size: 0.75rem;
+    line-height: 1.3;
+    color: #fff;
+    opacity: 0.9;
+}
+
+
+.spacer { height: 80px; }
+
+.bottom-nav {
+   position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);  
+    width: 100%;
+    max-width: 480px;              
+    background: white;
+    display: flex;
+    justify-content: space-around;
+    padding: 10px 0;
+    border-radius: 20px 20px 0 0;
+    box-shadow: 0 -4px 8px rgba(0,0,0,0.1);
+    z-index: 999;
+}
+
+.nav-item {
+    text-decoration: none;
+    display: flex; flex-direction: column; align-items: center;
+    color: #999; font-size: 0.75rem; font-weight: 600;
+}
+
+.nav-item .icon {
+    font-size: 1.4rem;
+    margin-bottom: 4px;
+    color: #555;
+    background: #E0E0E0;
+    width: 35px; height: 35px;
+    border-radius: 50%;
+    display: flex; justify-content: center; align-items: center;
+}
+
+.nav-item:hover .icon { color: #6a4c9c; }
