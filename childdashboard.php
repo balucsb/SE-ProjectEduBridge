@@ -2,13 +2,18 @@
 
 <?php
 session_start();
-$username = isset($_SESSION['user_name']) ? $_SESSION['user_name'] : "Bea";
+if (!isset($_SESSION['user_type']) || $_SESSION['user_type'] !== 'child') {
+    header("Location: login.php");
+    exit();
+}
+
+$username = $_SESSION['user_name'];  
 
 $categories = [
     ["title" => "NUMBERS", "color" => "#FAD02E", "link" => "numbergame.php"],
-    ["title" => "ANIMALS & PLANTS", "color" => "#A3CB38"],
-    ["title" => "READING & WRITING", "color" => "#EA2027"],
-    ["title" => "MINI GAMES", "color" => "#006266"]
+    ["title" => "ANIMALS & PLANTS", "color" => "#A3CB38", "link" => "animalplantsgame.php"],
+    ["title" => "READING & WRITING", "color" => "#EA2027", "link" => "reading_writing.php"],
+    ["title" => "MINI GAMES", "color" => "#006266", "link" => "minigames.php"]
 ];
 ?>
 
