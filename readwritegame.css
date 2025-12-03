@@ -1,0 +1,200 @@
+
+* { 
+    box-sizing: border-box; 
+    margin: 0; 
+    padding: 0; 
+}
+
+body {
+    background-color: #fff;
+    font-family: 'Poppins', sans-serif;
+    min-height: 100vh;
+}
+
+
+.top-bar {
+    padding: 15px 40px; 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #FFFDE7; 
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.left-nav { display: flex; align-items: center; gap: 20px; }
+
+
+.logo-text { font-family: 'Fredoka', sans-serif; font-size: 1.8rem; color: #ff9ebb; }
+.logo-highlight { color: #ff6b6b; }
+
+.user-info { display: flex; align-items: center; gap: 15px; }
+.greeting { font-family: 'Fredoka', sans-serif; font-size: 1rem; font-weight: 600; }
+.avatar-circle { 
+    width: 45px; height: 45px; border-radius: 50%; overflow: hidden; background: #eee;
+    display: flex; justify-content: center; align-items: center;
+    border: 2px solid white;
+}
+.avatar-circle img { width: 100%; height: 100%; object-fit: cover; }
+.img-fallback { font-size: 24px; }
+
+
+.game-header-bar {
+    background-color: #e056fd; 
+    padding: 20px 40px;
+    display: flex;
+    align-items: center;
+    color: white;
+    justify-content: center;
+    position: relative;
+}
+
+.back-link {
+    text-decoration: none;
+    color: white;
+    font-size: 2rem;
+    font-weight: bold;
+    position: absolute; 
+    left: 40px;
+}
+
+.game-header-bar h1 {
+    font-family: 'Fredoka', sans-serif;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+
+.content-area.game-layout {
+    padding: 40px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; 
+    gap: 40px;
+    width: 100%;
+    max-width: 1200px; 
+    margin: 0 auto; 
+}
+
+/* Question Box */
+.question-box {
+    background-color: #b02ba3; 
+    width: 100%;
+    max-width: 800px; 
+    padding: 40px;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+.question-box h2 {
+    font-family: 'Fredoka', sans-serif;
+    color: white;
+    font-size: 2.2rem; 
+    line-height: 1.3;
+    text-shadow: 2px 2px 0 rgba(0,0,0,0.1);
+}
+
+/* Options Grid */
+.options-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); 
+    gap: 30px;
+    width: 100%;
+    max-width: 1000px;
+    background-color: #e056fd; 
+    padding: 30px;
+    border-radius: 25px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+.option-card {
+    border: none;
+    border-radius: 15px;
+    height: 150px; 
+    font-family: 'Fredoka', sans-serif;
+    font-size: 2rem;
+    font-weight: 700;
+    color: white;
+    cursor: pointer;
+    box-shadow: 0 6px 0 rgba(0,0,0,0.2);
+    transition: transform 0.1s, box-shadow 0.1s;
+    text-shadow: 1px 1px 0 rgba(0,0,0,0.2);
+}
+
+.option-card:hover {
+    filter: brightness(1.1);
+    transform: translateY(-2px);
+}
+
+.option-card:active { 
+    transform: translateY(4px);
+    box-shadow: none;
+}
+
+/* Colors */
+.green { background-color: #4CAF50; }
+.red { background-color: #e62e2e; }
+.blue { background-color: #2955e7; }
+.yellow { background-color: #f7d416; }
+
+/* --- BOTTOM NAV --- */
+.bottom-nav {
+   position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);  
+    width: 100%;
+    max-width: 480px;              
+    background: white;
+    display: flex;
+    justify-content: space-around;
+    padding: 10px 0;
+    border-radius: 20px 20px 0 0;
+    box-shadow: 0 -4px 8px rgba(0,0,0,0.1);
+    z-index: 999;
+}
+
+.nav-item {
+    text-decoration: none;
+    display: flex; flex-direction: column; align-items: center;
+    color: #888; font-size: 0.9rem; font-weight: 600;
+    transition: color 0.2s;
+}
+
+.nav-item:hover { color: #e056fd; }
+
+.nav-item .icon {
+    font-size: 1.6rem;
+    margin-bottom: 5px;
+    color: #555;
+    background: #E0E0E0;
+    width: 40px; height: 40px;
+    border-radius: 50%;
+    display: flex; justify-content: center; align-items: center;
+    transition: background 0.2s, color 0.2s;
+}
+
+.nav-item:hover .icon {
+    background: #e056fd;
+    color: white;
+}
+
+@media (max-width: 768px) {
+    .options-grid {
+        grid-template-columns: 1fr 1fr; 
+    }
+
+    .top-bar, .game-header-bar {
+        padding: 15px 20px;
+    }
+
+    .back-link { left: 20px; }
+
+    .question-box h2 { font-size: 1.5rem; }
+    
+    .option-card { font-size: 1.5rem; height: 120px; }
+}
