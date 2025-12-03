@@ -1,0 +1,125 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    
+    background: linear-gradient(180deg, #fceaf6 0%, #ffbad6 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+
+.signup-container {
+    width: 100%;
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+}
+
+
+.header-nav {
+    margin-bottom: 20px;
+    padding-top: 10px;
+}
+
+.logo-area {
+    text-align: center;
+    margin-bottom: 30px;
+    min-height: 150px; 
+}
+
+.logo-img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto 10px auto;
+    max-height: 120px; 
+}
+
+.tagline {
+    font-size: 0.85rem;
+    color: #000;
+    font-weight: 600;
+    line-height: 1.4;
+    padding: 0 10px;
+}
+
+.error-msg {
+    color: #d32f2f;
+    background-color: #ffcdd2;
+    padding: 10px;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    text-align: center;
+    margin-bottom: 15px;
+    border: 1px solid #e57373;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px; 
+}
+
+
+.input-group {
+    background-color: #e8e8e8; 
+    border-radius: 8px;
+    padding: 8px 15px;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid transparent;
+    transition: border 0.2s;
+}
+
+.input-group:focus-within {
+    border: 1px solid #6a4c9c; 
+}
+
+.input-group label {
+    font-size: 0.75rem;
+    color: #666;
+    margin-bottom: 2px;
+}
+
+
+.input-group input {
+    background: transparent;
+    border: none;
+    outline: none;
+    font-size: 1rem;
+    color: #333;
+    font-weight: 500;
+    width: 100%;
+}
+
+.input-group input::placeholder {
+    color: #444; 
+    font-weight: 400;
+}
+
+
+.submit-btn {
+    margin-top: 30px;
+    background-color: #6a4c9c; 
+    color: white;
+    font-size: 1.1rem;
+    padding: 15px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(106, 76, 156, 0.4);
+    transition: transform 0.1s;
+}
+
+.submit-btn:active {
+    transform: scale(0.98);
+}

@@ -1,0 +1,63 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(180deg, #ffeef8 0%, #f7dff1 40%, #cfe0ff 80%, #aaccff 100%);
+}
+
+.form-container {
+    width: 100%;
+    max-width: 400px;
+    padding: 25px;
+    text-align: center;
+}
+
+h2 {
+    font-size: 2rem;
+    font-weight: 800;
+    margin-bottom: 30px;
+    color: #444;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+/* Spacing wrapper for the two buttons */
+.choice-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Sign Up Buttons */
+a {
+    text-decoration: none;
+}
+
+a button {
+    background-color: #6a4c9c;
+    color: white;
+    padding: 15px 30px;
+    border-radius: 18px;
+    border: none;
+    font-size: 1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(106, 76, 156, 0.3);
+    transition: 0.2s;
+}
+
+a button:hover {
+    transform: scale(1.05);
+    background-color: #5a3f88;
+}

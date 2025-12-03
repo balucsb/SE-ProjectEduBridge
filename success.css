@@ -1,0 +1,95 @@
+/* Import Google Font to match the design */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    /* Pink gradient background matching the photo */
+    background: linear-gradient(180deg, #ffeef8 0%, #ff9ebb 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    text-align: center;
+}
+
+.form-container {
+    width: 100%;
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* Optional: Add a white background card if you want it contained, 
+       but the design shows it floating on the background */
+}
+
+/* "Account created successfully!" */
+h2 {
+    color: #444;
+    font-size: 1.5rem;
+    font-weight: 800;
+    margin-bottom: 30px;
+}
+
+/* General paragraph styling */
+p {
+    color: #555;
+    font-size: 1rem;
+    line-height: 1.5;
+    margin-bottom: 15px;
+    width: 100%;
+}
+
+/* The Secret Code Styling */
+/* We target the <strong> tag to make it look like the large code in the image */
+p strong {
+    display: block; /* Forces it to a new line */
+    font-size: 3.5rem; /* Huge text size */
+    color: #333;
+    font-weight: 800;
+    margin: 15px 0; /* Space above and below the code */
+    letter-spacing: 2px;
+}
+
+/* The Red Warning Note */
+/* This targets the paragraph immediately following the code paragraph */
+p:nth-of-type(2) {
+    color: #ff0000; /* Bright red */
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 40px; /* Space before the button */
+    max-width: 90%;
+}
+
+/* Button Styling */
+button {
+    background-color: #6a4c9c; /* The specific purple from the design */
+    color: white;
+    font-size: 1.1rem;
+    font-weight: 500;
+    padding: 15px 60px; /* Wide padding for pill shape */
+    border: none;
+    border-radius: 25px; /* Rounded pill shape */
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(106, 76, 156, 0.3);
+    transition: transform 0.2s;
+}
+
+button:hover {
+    background-color: #583e85;
+}
+
+button:active {
+    transform: scale(0.98);
+}
+
+/* Link tag reset to ensure button looks right */
+a {
+    text-decoration: none;
+}
