@@ -1,0 +1,48 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #FFE959;
+}
+
+.header {
+    background: #E0C342;
+    color: black;
+    text-align: center;
+    padding: 40px 20px;
+    border-bottom-left-radius: 40px;
+    border-bottom-right-radius: 40px;
+}
+
+.header h1 {
+    margin: 0;
+    font-size: 40px;
+}
+
+.header p {
+    margin-top: 10px;
+    font-size: 18px;
+}
+
+.container {
+    width: 80%;
+    max-width: 900px;
+    margin: 40px auto;
+}
+
+.tip-card {
+    background: #E0C342;
+    padding: 25px;
+    margin-bottom: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.tip-card h2 {
+    margin-top: 0;
+    color: black;
+}
+
+.tip-card p {
+    color: #333;
+    font-size: 16px;
+}
